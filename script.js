@@ -10,9 +10,7 @@ let num = 266219;
 
 num = String(num).split('');
 
-let multiply = (previousValue, currentValue) => previousValue * currentValue;
-
-num = num.reduce(multiply);
+num = num.reduce((previousValue, currentValue) => previousValue * currentValue);
 
 console.log(num);
 
