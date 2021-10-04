@@ -1,19 +1,16 @@
 /* jshint esversion: 7 */
 'use strict';
 
-/* Переменная lang может принимать 2 значения: 'ru' 'en'.
-Написать условия при котором в зависимости от значения lang будут выводится 
-дни недели на русском или английском языке. Решите задачу
- a) через if,
- b) через switch-case
- c) через многомерный массив без ифов и switch. */
+const lang = prompt("Какой язык будем использовать?", "ru/en");
 
-let lang = prompt("Какой язык будем использовать?", "ru/en");
+const ru = "Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье";
+const en = "Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday";
+
 
 if (lang == 'ru') {
-  console.log("Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье");
+  console.log(ru);
 } else if (lang == 'en') {
-  console.log("Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday");
+  console.log(en);
 } else {
   console.log("Такой язык мне не известен");
 }
@@ -22,11 +19,11 @@ if (lang == 'ru') {
 
 switch (lang) {
   case 'ru':
-    console.log("Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье");
+    console.log(ru);
     break;
 
   case 'en':
-    console.log("Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday");
+    console.log(en);
     break;
 
   default:
@@ -35,12 +32,12 @@ switch (lang) {
 
 // ---------------------------------
 
-let week = {
+const week = {
   'ru': {
-    'days': "Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье"
+    'days': ru
   },
   'en': {
-    'days': "Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday"
+    'days': en
   }
 };
 
@@ -48,19 +45,15 @@ console.log(week[lang].days);
 
 // ---------------------------------
 
-let array = [];
-array['ru'] = { 'days': "Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье" };
-array['en'] = { 'days': "Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday" };
+const array = [];
+array['ru'] = ru;
+array['en'] = en;
 
-console.log(array[lang].days);
+console.log(array[lang]);
 
 
-/* У нас есть переменная namePerson. Если значение этой переменной “Артем”,
-то вывести в консоль “директор”, если значение “Александр”, то вывести
-в консоль “преподаватель”, с любым другим значением вывести в консоль “студент”.
-Решить задачу с помощью нескольких тернарных операторов, без использования if или switch */
 
-let namePerson = prompt("Введите имя");
+// const namePerson = prompt("Введите имя");
 
-console.log(namePerson == "Артем" ? "директор" : namePerson == "Александр" ? "преподаватель" : "студент");
+// console.log(namePerson == "Артем" ? "директор" : namePerson == "Александр" ? "преподаватель" : "студент");
 
