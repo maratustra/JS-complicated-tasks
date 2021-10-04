@@ -1,23 +1,66 @@
 /* jshint esversion: 7 */
+'use strict';
 
-// 1) Создать переменную num со значением 266219 (тип данных число).
+/* Переменная lang может принимать 2 значения: 'ru' 'en'.
+Написать условия при котором в зависимости от значения lang будут выводится 
+дни недели на русском или английском языке. Решите задачу
+ a) через if,
+ b) через switch-case
+ c) через многомерный массив без ифов и switch. */
 
-let num = 266219;
+let lang = prompt("Какой язык будем использовать?", "ru/en");
 
-/* 2) Вывести в консоль произведение (умножение) цифр этого числа.
-Например: число 123, при помощи javaScript получить каждую цифру ( 1, 2, 3 ) 
-и перемножить их. Правильно использовать цикл или методы перебора. */
+if (lang == 'ru') {
+  console.log("Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье");
+} else if (lang == 'en') {
+  console.log("Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday");
+} else {
+  console.log("Такой язык мне не известен");
+}
 
-num = String(num).split('');
+// ---------------------------------
 
-num = num.reduce((previousValue, currentValue) => previousValue * currentValue);
+switch (lang) {
+  case 'ru':
+    console.log("Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье");
+    break;
 
-console.log(num);
+  case 'en':
+    console.log("Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday");
+    break;
 
-// 3) Полученный результат возвести в степень 3, используя только 1 оператор (Math.pow не подходит)
+  default:
+    console.log("Такой язык мне не известен");
+}
 
-num = num ** 3;
+// ---------------------------------
 
-// 4) Вывести в консоль первые 2 цифры полученного числа
+let week = {
+  'ru': {
+    'days': "Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье"
+  },
+  'en': {
+    'days': "Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday"
+  }
+};
 
-console.log(String(num).substr(0, 2));
+console.log(week[lang].days);
+
+// ---------------------------------
+
+let array = [];
+array['ru'] = { 'days': "Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье" };
+array['en'] = { 'days': "Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday" };
+
+console.log(array[lang].days);
+
+
+/* У нас есть переменная namePerson. Если значение этой переменной “Артем”,
+то вывести в консоль “директор”, если значение “Александр”, то вывести
+в консоль “преподаватель”, с любым другим значением вывести в консоль “студент”.
+Решить задачу с помощью нескольких тернарных операторов, без использования if или switch */
+
+let namePerson = prompt("Введите имя");
+
+console.log(namePerson == "Артем" ? "директор" : namePerson == "Александр" ? "преподаватель" : "студент");
+
