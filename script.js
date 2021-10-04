@@ -38,10 +38,14 @@ const week = {
   },
   'en': {
     'days': en
+  },
+  'undefined': {
+    'days': "Такой язык мне не известен"
   }
 };
 
-console.log(week[lang].days);
+if (week[lang] === undefined) console.log("Такой язык мне не известен");
+else console.log(week[lang].days);
 
 // ---------------------------------
 
@@ -49,11 +53,12 @@ const array = [];
 array['ru'] = ru;
 array['en'] = en;
 
-console.log(array[lang]);
+if (array[lang] === undefined) console.log("Такой язык мне не известен");
+else console.log(array[lang]);
 
 
 
-// const namePerson = prompt("Введите имя");
+const namePerson = prompt("Введите имя");
 
-// console.log(namePerson == "Артем" ? "директор" : namePerson == "Александр" ? "преподаватель" : "студент");
+console.log(namePerson == "Артем" ? "директор" : namePerson == "Александр" ? "преподаватель" : "студент");
 
