@@ -38,9 +38,6 @@ const week = {
   },
   'en': {
     'days': en
-  },
-  'undefined': {
-    'days': "Такой язык мне не известен"
   }
 };
 
