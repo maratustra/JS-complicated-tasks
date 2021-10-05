@@ -5,6 +5,8 @@ const optimizingFunction = function (arg) {
 
   if (typeof arg !== 'string') {
     return console.log("Это не строка!");
+  } else if (isNaN(arg) == false) {
+    return console.log("Это не строка!");
   }
 
   arg = arg.trim();
@@ -16,4 +18,4 @@ const optimizingFunction = function (arg) {
   }
 };
 
-console.log(optimizingFunction(' 123456789112675840275638292757438484930303'));
+console.log(optimizingFunction('123'));
