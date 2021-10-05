@@ -3,7 +3,9 @@
 
 const optimizingFunction = function (arg) {
 
-  (typeof arg !== 'string') ? console.log("Это не строка!") : null;
+  if (typeof arg !== 'string') {
+    return console.log("Это не строка!");
+  }
 
   arg = arg.trim();
 
@@ -14,4 +16,4 @@ const optimizingFunction = function (arg) {
   }
 };
 
-optimizingFunction();
+console.log(optimizingFunction(' 123456789112675840275638292757438484930303'));
