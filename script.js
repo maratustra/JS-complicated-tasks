@@ -6,40 +6,34 @@ let lang = prompt("Какой язык будем использовать?", "r
 const ru = ["Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье"];
 const en = ["Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday"];
 
-
-if (lang !== 'ru' && lang !== 'en') {
-  lang = prompt("Такой язык мне не известен. Используй ru или en", "ru/en");
-}
-
-if (lang == 'ru') {
-  console.log(ru);
-} else if (lang == 'en') {
-  console.log(en);
-}
-
-switch (lang) {
-  case 'ru':
-    console.log(ru);
-    break;
-
-  case 'en':
-    console.log(en);
-    break;
-}
+const array = [];
+array['ru'] = ru;
+array['en'] = en;
 
 const week = {
   ru: ru,
   en: en
 };
 
-const array = [];
-array['ru'] = ru;
-array['en'] = en;
+if (lang === 'ru' || lang === 'en') {
 
+  switch (lang) {
+    case 'ru':
+      console.log(ru);
+      break;
+    case 'en':
+      console.log(en);
+      break;
+  }
 
-console.log(week[lang]);
-console.log(array[lang]);
+  console.log(week[lang]);
+  console.log(array[lang]);
 
+} else {
+
+  lang = prompt("Такой язык мне не известен. Используй ru или en", "ru/en");
+
+}
 
 
 const namePerson = prompt("Введите имя");
