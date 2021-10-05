@@ -1,11 +1,10 @@
 /* jshint esversion: 7 */
 'use strict';
 
-const lang = prompt("Какой язык будем использовать?", "ru/en");
+let lang = prompt("Какой язык будем использовать?", "ru/en");
 
-const ru = "Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье";
-const en = "Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday";
-
+const ru = ["Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье"];
+const en = ["Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday"];
 
 if (lang == 'ru') {
   console.log(ru);
@@ -32,17 +31,13 @@ switch (lang) {
 
 // ---------------------------------
 
-const week = {
-  'ru': {
-    'days': ru
-  },
-  'en': {
-    'days': en
-  }
-};
+// const week = {
+//   ru: ru,
+//   en: en
+// };
 
-if (week[lang] === undefined) console.log("Такой язык мне не известен");
-else console.log(week[lang].days);
+// if (week[lang] === undefined) console.log("Такой язык мне не известен");
+// else console.log(week[lang]);
 
 // ---------------------------------
 
