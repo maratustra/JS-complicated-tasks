@@ -1,42 +1,29 @@
 /* jshint esversion: 7 */
 'use strict';
 
-let lang = prompt("Какой язык будем использовать?", "ru/en");
+const week = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
+let weekArea = document.getElementById('area');
 
-const ru = ["Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье"];
-const en = ["Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday"];
+let today = new Date;
+let todayWeekday = today.getDay() - 1;
 
-const array = [];
-array['ru'] = ru;
-array['en'] = en;
+const getWeekDays = function () {
 
-const week = {
-  ru: ru,
-  en: en
+  week.forEach(function (day, index) {
+
+    let dayArea = document.createElement('div');
+
+    if (day === "Суббота" || day === "Воскресенье") {
+      dayArea.textContent = day;
+      dayArea.classList.add('italic');
+    } else if (index === todayWeekday) {
+      dayArea.textContent = week[index];
+      dayArea.classList.add('bold');
+    } else {
+      dayArea.textContent = week[index];
+    }
+    weekArea.appendChild(dayArea);
+  });
 };
 
-if (lang === 'ru' || lang === 'en') {
-
-  switch (lang) {
-    case 'ru':
-      console.log(ru);
-      break;
-    case 'en':
-      console.log(en);
-      break;
-  }
-
-  console.log(week[lang]);
-  console.log(array[lang]);
-
-} else {
-
-  lang = prompt("Такой язык мне не известен. Используй ru или en", "ru/en");
-
-}
-
-
-const namePerson = prompt("Введите имя");
-
-console.log(namePerson == "Артем" ? "директор" : namePerson == "Александр" ? "преподаватель" : "студент");
-
+getWeekDays(week);
