@@ -6,6 +6,7 @@ let weekArea = document.getElementById('area');
 
 let today = new Date;
 let todayWeekday = today.getDay() - 1;
+console.log(todayWeekday);
 
 const getWeekDays = function () {
 
@@ -16,7 +17,7 @@ const getWeekDays = function () {
     if (day === "Суббота" || day === "Воскресенье") {
       dayArea.textContent = day;
       dayArea.classList.add('italic');
-    } else if (index === todayWeekday) {
+    } if (index === todayWeekday) {
       dayArea.textContent = week[index];
       dayArea.classList.add('bold');
     } else {
