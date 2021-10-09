@@ -1,30 +1,31 @@
 /* jshint esversion: 7 */
 'use strict';
 
-const week = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
-let weekArea = document.getElementById('area');
+// 1.
 
-let today = new Date;
-let todayWeekday = today.getDay() - 1;
-console.log(todayWeekday);
+let arr = ["12345", "28", "499", "5", "327896", "2076", "0"];
+let newArr = [];
 
-const getWeekDays = function () {
+arr.forEach(function (item, index) {
 
-  week.forEach(function (day, index) {
+  let eachNum = arr[index];
 
-    let dayArea = document.createElement('div');
+  if (+eachNum[0] === 2 || +eachNum[0] === 4) {
+    console.log(eachNum);
+  }
+});
 
-    if (day === "Суббота" || day === "Воскресенье") {
-      dayArea.textContent = day;
-      dayArea.classList.add('italic');
-    } if (index === todayWeekday) {
-      dayArea.textContent = week[index];
-      dayArea.classList.add('bold');
-    } else {
-      dayArea.textContent = week[index];
+// 2.
+
+let maxNumber = 100;
+
+nextPrime:
+for (let i = 2; i <= maxNumber; i++) {
+
+  for (let k = 2; k < i; k++) {
+    if (i % k == 0) {
+      continue nextPrime;
     }
-    weekArea.appendChild(dayArea);
-  });
-};
-
-getWeekDays(week);
+  }
+  console.log(i + " Делители этого числа: 1 и " + i);
+}
