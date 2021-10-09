@@ -28,4 +28,5 @@ for (let i = 2; i <= maxNumber; i++) {
     }
   }
   console.log(i + " Делители этого числа: 1 и " + i);
+
 }
