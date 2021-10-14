@@ -14,9 +14,10 @@ const timerOn = function () {
   let weekOptions = { weekday: 'long' };
   weekDay = date.toLocaleString('ru-RU', weekOptions);
   let dateResult;
-
+  const area = document.getElementById('area');
   const hourForms = ["час", "часа", "часов"];
-
+  let clockArea1 = document.createElement('div');
+  let clockArea2 = document.createElement('div');
 
   const dateOptionA = function () {
 
@@ -24,8 +25,11 @@ const timerOn = function () {
     month = date.toLocaleString('ru-RU', monthOptions);
     month = month.toString().slice(0, -1) + "я";
 
-    dateResult = ("Сегодня " + weekDay + ", " + dayOfMonth + " " + month + " " + year + " года, " + hour + " " + formating() + " " + minutes + " минут " + seconds + " секунд ");
-    console.log(dateResult);
+    dateResult = `Сегодня ${weekDay}, ${dayOfMonth} ${month} ${year} года, ${hour} ${formating()} ${minutes} минут ${seconds} секунд`;
+
+    clockArea1.textContent = dateResult;
+    area.append(clockArea1);
+
     return;
   };
 
@@ -34,10 +38,11 @@ const timerOn = function () {
     let monthOptions = { month: 'numeric' };
     month = date.toLocaleString('ru-RU', monthOptions);
 
-    getZero();
+    dateResult = `${getZero(dayOfMonth)}.${getZero(month)}.${year} - ${getZero(hour)}:${getZero(minutes)}:${getZero(seconds)}`;
 
-    dateResult = (dayOfMonth + "." + month + "." + year + " - " + hour + ":" + minutes + ":" + seconds);
-    console.log(dateResult);
+    clockArea2.textContent = dateResult;
+    area.append(clockArea2);
+
     return;
   };
 
@@ -52,14 +57,10 @@ const timerOn = function () {
     }
   };
 
-  const getZero = function () {
+  const getZero = function (num) {
 
-    dayOfMonth = dayOfMonth < 10 ? '0' + dayOfMonth : dayOfMonth;
-    month = month < 10 ? '0' + month : month;
-    hour = hour < 10 ? '0' + hour : hour;
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-    return;
+    num = num < 10 ? '0' + num : num;
+    return num;
   };
 
   dateOptionA();
